@@ -7,6 +7,7 @@ import conflicts from './05-conflicts';
 import shipping from './06-shipping';
 import letTheAiDrive from './07-ai';
 import cloudAgents from './08-cloud-agents';
+import pullRequests from './08b-pull-requests';
 import manners from './09-manners';
 import rebase from './10-rebase';
 import worktrees from './11-worktrees';
@@ -26,6 +27,7 @@ export const slides: SlideDef[] = [
   shipping,
   letTheAiDrive,
   cloudAgents,
+  pullRequests,
   manners,
   rebase,
   worktrees,
