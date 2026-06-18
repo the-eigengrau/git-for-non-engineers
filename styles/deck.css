@@ -1,0 +1,98 @@
+/* ============================================
+   GIT VISUAL LIBRARY — ported animation classes
+   (CommitGraph / CommandMap / DeployPipeline /
+    MergeConflictDiff / WorktreeVariants)
+   ============================================ */
+
+/* Pre-paint hidden state for animated SVG/token elements. gsap writes inline
+   opacity (which beats this class), so React re-renders can't clobber the
+   animated/final values, and no-JS still degrades to a clean hidden frame. */
+.git-anim-pre {
+  opacity: 0;
+}
+/* Connector fill starts collapsed; gsap writes an inline transform that wins. */
+.git-fill-pre {
+  transform: scale(0);
+  transform-origin: 0% 0%;
+}
+
+/* DeployPipeline — a stage chip lighting up as the deploy reaches it. */
+.git-pipe-chip {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.git-pipe-chip.is-on {
+  border-color: var(--color-interactive);
+  box-shadow: 0 0 0 1px var(--color-interactive), 0 6px 18px -18px rgba(115, 118, 247, 0.35);
+}
+.git-pipe-chip.is-on .git-pipe-label { color: var(--color-ultralight); }
+.git-pipe-chip.is-on .git-pipe-icon { color: var(--color-interactive-bright); }
+
+/* CommandMap — command labels light up as the token reaches them. */
+.git-cmd {
+  color: var(--color-gray-medium);
+  transition: color 0.3s ease;
+}
+.git-cmd.cmd-on {
+  color: var(--color-interactive-bright);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .git-pipe-chip { transition: none; }
+}
+
+/* ============================================
+   DECK CHROME — quiet, secondary presentation UI
+   ============================================ */
+
+/* The full-viewport stage. Slides stack absolutely inside it. */
+.deck-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Each slide fills the stage and is layered for crossfades. Idle slides are
+   hidden via gsap autoAlpha (visibility:hidden), removing them from the a11y
+   tree and tab order; only the active slide is interactive. */
+.deck-slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Quiet caption beneath a slide's canvas — a secondary gray label. */
+.deck-caption {
+  color: var(--color-gray-medium);
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+}
+
+/* The hairline progress rule pinned to the bottom edge. */
+.deck-progress-track {
+  background-color: var(--color-gray-very-dark);
+}
+.deck-progress-fill {
+  background-color: var(--color-interactive);
+  transform-origin: left center;
+}
+
+/* A single, brand-coloured focus ring for every control, in place of the
+   browser default, so keyboard focus reads on-brand and follows each shape. */
+button:focus-visible {
+  outline: 2px solid var(--color-interactive-bright);
+  outline-offset: 3px;
+}
+
+/* Chrome fades to a resting opacity and lifts on hover/focus, so it stays out
+   of the way during a talk without ever fully disappearing. */
+.deck-chrome-quiet {
+  opacity: 0.55;
+  transition: opacity 0.3s ease;
+}
+.deck-chrome-quiet:hover,
+.deck-chrome-quiet:focus-within {
+  opacity: 1;
+}

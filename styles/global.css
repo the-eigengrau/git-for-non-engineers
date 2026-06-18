@@ -1,0 +1,209 @@
+@import "tailwindcss";
+
+/* ============================================
+   THEME CONFIGURATION
+   Ported from the portfolio blog so the deck
+   reads in the exact same visual language.
+   ============================================ */
+@theme {
+  /* Colors */
+  --color-ultradark: #0D0C0C;
+  --color-gray-very-dark: #212020;
+  --color-gray-dark: #333333;
+  --color-gray-medium: #8A8888;
+  --color-gray-light: #D8D8DA;
+  --color-ultralight: #FFFBFA;
+  --color-interactive: #7376F7; /* Indigo */
+  --color-interactive-bright: #A5A8FF; /* Brighter indigo for text on dark surfaces */
+
+  /* For rgba() usage */
+  --color-dark-glass: 33, 32, 32;
+
+  /* Typography - Font */
+  --font-sans: 'Satoshi', system-ui, sans-serif;
+  --font-geist-mono: 'Geist Mono', ui-monospace, monospace;
+
+  /* Typography - Type Scale */
+  --text-xs: 0.75rem;      /* 12px - captions */
+  --text-sm: 0.875rem;     /* 14px - small UI */
+  --text-base: 1rem;       /* 16px - body */
+  --text-lg: 1.125rem;     /* 18px - lead body */
+  --text-xl: 1.25rem;      /* 20px - lead text */
+  --text-2xl: 1.5rem;      /* 24px - subhead */
+  --text-3xl: 2rem;        /* 32px - section head */
+  --text-4xl: 2.5rem;      /* 40px - slide title */
+  --text-5xl: 3.5rem;      /* 56px - hero headline */
+  --text-6xl: 4rem;        /* 64px - hero large */
+
+  /* Typography - Line Heights */
+  --leading-tight: 1.1;
+  --leading-snug: 1.2;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.6;
+
+  /* Typography - Letter Spacing */
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.1em;
+
+  /* Custom border radius */
+  --radius-pill: 300px;
+  --radius-card: 20px;
+  --radius-card-sm: 12px;
+}
+
+/* ============================================
+   FONT FACES - Satoshi (Neo-Grotesk)
+   ============================================ */
+@font-face {
+  font-family: 'Satoshi';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('/fonts/Satoshi-Light.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Satoshi';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/Satoshi-Regular.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Satoshi';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/Satoshi-Italic.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Satoshi';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/Satoshi-Medium.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Satoshi';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/Satoshi-Bold.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Satoshi';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/Satoshi-Black.otf') format('opentype');
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+.animate-blink-languid {
+  animation: blink 1.2s infinite steps(1, start);
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-blink-languid { animation: none; }
+}
+
+/* ============================================
+   BASE STYLES
+   The deck is a single full-viewport surface;
+   the page owns its own layout and never scrolls.
+   ============================================ */
+html {
+  background-color: var(--color-ultradark);
+  scrollbar-width: none;
+}
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+html,
+body,
+#__next {
+  height: 100%;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  font-weight: 400;
+  color: var(--color-gray-light);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* ============================================
+   TYPOGRAPHY BASE
+   Hierarchy via weight, not color.
+   ============================================ */
+@layer base {
+  h1 {
+    font-size: var(--text-5xl);
+    font-weight: 500;
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tight);
+    color: var(--color-ultralight);
+    margin: 0;
+  }
+  h2 {
+    font-size: var(--text-3xl);
+    font-weight: 600;
+    line-height: var(--leading-snug);
+    letter-spacing: var(--tracking-tight);
+    color: var(--color-ultralight);
+    margin: 0;
+  }
+  h3 {
+    font-size: var(--text-2xl);
+    font-weight: 500;
+    line-height: var(--leading-snug);
+    letter-spacing: var(--tracking-normal);
+    color: var(--color-ultralight);
+    margin: 0;
+  }
+  h4 {
+    font-size: var(--text-sm);
+    font-weight: 500;
+    line-height: var(--leading-snug);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--color-gray-medium);
+    margin: 0;
+  }
+  p {
+    font-size: var(--text-base);
+    font-weight: 400;
+    line-height: var(--leading-normal);
+    letter-spacing: var(--tracking-normal);
+    color: var(--color-gray-light);
+    margin: 0;
+  }
+  a {
+    color: var(--color-interactive-bright);
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  img {
+    max-width: 100%;
+    display: block;
+  }
+}
