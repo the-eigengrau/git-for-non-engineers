@@ -4,5 +4,5 @@ export default makeStudentSlide({
   name: 'Jon',
   role: 'Director of Product Design',
   avatar: '',
-  bio: 'Add a line about yourself, then open a pull request.',
+  bio: 'Jon lives in Massachusetts.',
 });
