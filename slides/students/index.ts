@@ -11,6 +11,7 @@ import lucy from './lucy';
 import neeraj from './neeraj';
 import niloo from './niloo';
 import peter from './peter';
+import raj from './raj';
 import sara from './sara';
 import suresh from './suresh';
 import vinay from './vinay';
@@ -31,6 +32,7 @@ export const studentSlides: SlideDef[] = [
   neeraj,
   niloo,
   peter,
+  raj,
   sara,
   suresh,
   vinay,
