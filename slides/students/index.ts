@@ -2,6 +2,7 @@ import type { SlideDef } from '../types';
 import aditi from './aditi';
 import amartya from './amartya';
 import arthur from './arthur';
+import ayon from './ayon';
 import celia from './celia';
 import hamza from './hamza';
 import jon from './jon';
@@ -23,6 +24,7 @@ export const studentSlides: SlideDef[] = [
   aditi,
   amartya,
   arthur,
+  ayon,
   celia,
   hamza,
   jon,
