@@ -25,8 +25,8 @@ function Title() {
         </div>
         <h1 className="text-balance">Git for non-engineers</h1>
         <p className="max-w-[34rem] text-xl text-gray-light max-md:text-lg">
-          The tool engineers use to collaborate on code, explained for designers who
-          prototype in it.
+          The tool engineers use to collaborate on code, explained for the designers who
+          prototype alongside them.
         </p>
       </div>
       <div className="mt-6 font-geist-mono text-xs text-gray-medium">
