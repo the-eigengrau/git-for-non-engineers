@@ -7,14 +7,60 @@ It is built from the animations in the *Git for non-engineers* essay: commit
 graphs, the everyday command loop, merge conflicts, deploy pipelines, and
 worktrees, turned into slides you drive with the keyboard.
 
-## Run it
+## Run it on your computer
+
+New to this? You only need to do the one-time setup once. After that, getting the
+deck running is three commands.
+
+### One-time setup
+
+Install these once. If you already have them, skip ahead.
+
+1. **Node.js** (this runs the project). Download the **LTS** version from
+   [nodejs.org](https://nodejs.org) and install it. It comes with `npm`.
+2. **git** (this is the tool the whole workshop is about). On a Mac you likely
+   have it already. Check with `git -v`. If not, install
+   [git](https://git-scm.com/downloads), or on a Mac run `xcode-select --install`.
+3. **A code editor**, if you do not have one. [VS Code](https://code.visualstudio.com)
+   or [Cursor](https://cursor.com) both work well.
+
+To confirm the first two are ready, open your terminal (Terminal on Mac, or the
+terminal inside your editor) and run:
 
 ```bash
+node -v   # should print v18 or higher
+git -v    # should print a version
+```
+
+### Get the deck running
+
+```bash
+# 1. Download the project
+git clone https://github.com/the-eigengrau/git-for-non-engineers.git
+
+# 2. Go into the folder
+cd git-for-non-engineers
+
+# 3. Install the dependencies (one time, takes about a minute)
 npm install
+
+# 4. Start it
 npm run dev
 ```
 
-Open http://localhost:3000.
+Then open the address it prints, usually **http://localhost:3000**. Use the arrow
+keys to move through the deck. To stop the server, press `Ctrl+C` in the terminal.
+
+### If something goes wrong
+
+- **`command not found: node` or `npm`** — Node is not installed yet, or the
+  terminal needs to be closed and reopened after installing it.
+- **A message about the port being in use** — that is fine. The deck just starts
+  on the next free port. Open the exact address the terminal printed.
+- **An error mentioning the Node version** — you need Node 18 or higher. Install
+  the LTS version from [nodejs.org](https://nodejs.org).
+- **Still stuck?** Open the folder in Cursor or VS Code and ask the AI: "install
+  the dependencies and run this Next.js app." It can do the whole thing for you.
 
 ## Present it
 
