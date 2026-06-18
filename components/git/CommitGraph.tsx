@@ -207,7 +207,7 @@ export default function CommitGraph({ nodes, edges, refs = [], steps, maxHeight 
               if (el)
                 tl.to(
                   el,
-                  { scale: 1.18, duration: 0.22, yoyo: true, repeat: 1, ease: 'power2.inOut' },
+                  { scale: 1.22, duration: 0.3, yoyo: true, repeat: 1, ease: 'sine.inOut' },
                   i === 0 ? '>' : '<',
                 );
             });
