@@ -5,4 +5,5 @@ export default makeStudentSlide({
   role: 'Founder & Creative Director',
   avatar: '',
   bio: 'how come i am here at 00.30 am',
+  color: '#3b82f6',
 });
