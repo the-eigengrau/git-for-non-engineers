@@ -44,9 +44,13 @@ export default function DeployPipeline({ stages = DEFAULT_STAGES }: DeployPipeli
       const tl = gsap.timeline();
       stages.forEach((_, i) => {
         tl.call(() => chips[i]?.classList.add('is-on'));
-        tl.to({}, { duration: 0.18 });
+        // A quick settle as the deploy reaches the stage, so lighting up reads
+        // as an arrival rather than a flat colour swap.
+        tl.fromTo(chips[i], { scale: 0.96 }, { scale: 1, duration: 0.32, ease: 'back.out(2.4)' }, '<');
         if (i < fills.length) {
-          tl.to(fills[i], { scaleX: 1, scaleY: 1, duration: 0.42, ease: 'power2.inOut' });
+          // The indigo current flows out of the chip the moment it lights,
+          // overlapping the settle so the pipeline feels continuous.
+          tl.to(fills[i], { scaleX: 1, scaleY: 1, duration: 0.46, ease: 'power1.inOut' }, '<0.12');
         }
       });
     }, rootRef);

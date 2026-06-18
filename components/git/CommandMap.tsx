@@ -68,8 +68,10 @@ export default function CommandMap() {
                 onClick={() => setActive((a) => (a === z.key ? null : z.key))}
                 aria-pressed={tapped}
                 aria-label={`${z.label}: ${z.desc}`}
-                className={`flex flex-1 cursor-pointer items-center justify-center gap-3 rounded-[var(--radius-card-sm)] border bg-transparent px-4 py-4 text-center transition-colors duration-500 md:min-h-[6rem] md:flex-col md:gap-2 md:py-5 ${
-                  lit ? 'border-interactive' : 'border-gray-very-dark hover:border-gray-medium'
+                className={`flex flex-1 cursor-pointer items-center justify-center gap-3 rounded-[var(--radius-card-sm)] border bg-transparent px-4 py-4 text-center transition-all duration-500 md:min-h-[6rem] md:flex-col md:gap-2 md:py-5 ${
+                  lit
+                    ? 'scale-[1.03] border-interactive'
+                    : 'border-gray-very-dark hover:border-gray-medium'
                 }`}
               >
                 {tapped ? (
